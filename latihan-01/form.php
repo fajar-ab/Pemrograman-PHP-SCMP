@@ -10,12 +10,16 @@
 <body>
     
     <form name="FDAFTAR" action="simpan.php" method="POST">
-        <input type="text" name="nim" id="">
-        <input type="text" name="nama" id="">
-        <input type="text" name="jk" id="">
-        <input type="text" name="alamat" id="">
+        <label for="nim">NIM: </label>
+        <input type="text" name="nim" id="nim">
+        <label for="nama">Nama </label>
+        <input type="text" name="nama" id="nama">
+        <label for="jk">Jenis Kelamin</label>
+        <input type="text" name="jk" id="jk">
+        <label for="alamat">Alamat </label>
+        <input type="text" name="alamat" id="alamat">
         <button type="submit" name="submit">DAFTAR</button>
     </form>
-
+    
 </body>
 </html>
