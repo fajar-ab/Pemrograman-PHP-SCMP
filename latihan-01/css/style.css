@@ -1,51 +1,99 @@
+/* * {
+    border: 1px dotted;
+} */
 
 body {
-    display: flex;
-    justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(59, 59, 59);
 }
 
-form {
+.daftar {
     width: 400px;
-    height: 330px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 6px;
-    padding: 10px;
-    box-sizing: border-box;
-    box-shadow: 0 0 5px rgba(131, 131, 131, 0.685);
-    border-top: 10px solid salmon;
-}
-
-input {
-    width: 350px;
-    height: 25px;
-    display: block;
-    margin: 8px auto;
-    font-size: 18px;
-    border: 1px solid rgb(212, 206, 205);
-}
-
-label {
-    margin-left: 16px;
-}
-
-button {
-    display: block;
-    width: 80px;
-    height: 30px;
-    background-color: salmon;
-    color: white;
-    font-weight: bold;
-    border: 0;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    box-shadow: 0 0 8px 2px rgba(187, 187, 187, 0.712);
+    margin: 20px auto;
+    padding: 24px;
     border-radius: 4px;
-    margin: auto;
 }
 
-button:hover {
-    background-color: rgb(224, 109, 96);
+.daftar::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 50%;
+    height: 10px;
+    background-color: rgb(255, 166, 0);
+    border-radius: 50px;
+    top: -5px;
+    left: 110px;
+}
+
+.daftar:hover {
+    box-shadow: 0 0 9px 2px rgba(153, 153, 153, 0.712);
+}
+
+.daftar fieldset {
+    border: none;
+    padding: 8px 0 0 0;
+    margin: 0 0 10px 0;
+    display: flex;
+}
+
+.daftar legend {
+    font-style: italic;
+}
+
+.daftar label {
+    font-style: italic;
+    margin-bottom: 8px;
+}
+
+.daftar fieldset label {
+    margin-right: 10px;
+    font-style: normal;
+    padding: 4px 0 4px 15px;
+    display: flex;
+    align-items: center;
+}
+.daftar fieldset label:hover {
     cursor: pointer;
 }
 
-input:active {
+.daftar input[type=text] {
+    height: 34px;
+    font-size: 17px;
+    color: rgb(117, 117, 117);
+    padding-left: 15px;
+    border: 1px solid rgba(173, 173, 173, 0.623);
+    border-radius: 5px;
+    margin-bottom: 18px;
+}
+
+.daftar input[type=text]:focus {
     outline: none;
+    border: 1px solid rgba(100, 100, 100, 0.623);
+}
+
+.daftar input[type=radio] {
+    margin-right: 10px;
+}
+
+.daftar button {
+    width: 60%;
+    height: 38px;
+    margin: 12px auto 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #fdd009;
+    font-weight: bold;
+    color: white;
+    transition: .3s;
+}
+
+.daftar button:hover {
+    cursor: pointer;
+    background-color: #ffde4d;
+    transform: scaleX(1.1);
 }
