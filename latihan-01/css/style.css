@@ -1,99 +1,166 @@
-/* * {
-    border: 1px dotted;
-} */
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgb(59, 59, 59);
+    color: rgb(77, 77, 77);
 }
 
-.daftar {
-    width: 400px;
+.container {
+    width: 60%;
+    margin: 100px;
+}
+
+/* +++++++++++++++  style tampil.php  ++++++++++++++ */
+
+nav {
+    margin-bottom: 20px;
     display: flex;
-    position: relative;
-    flex-direction: column;
-    box-shadow: 0 0 8px 2px rgba(187, 187, 187, 0.712);
-    margin: 20px auto;
-    padding: 24px;
-    border-radius: 4px;
 }
 
-.daftar::after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 50%;
-    height: 10px;
-    background-color: rgb(255, 166, 0);
-    border-radius: 50px;
-    top: -5px;
-    left: 110px;
+nav a {
+    display: inline-block;
+    margin-bottom: 10px;
+    text-decoration: none;
 }
 
-.daftar:hover {
-    box-shadow: 0 0 9px 2px rgba(153, 153, 153, 0.712);
+nav form {
+    display: inline-block;
+    margin-left: 40px;
 }
 
-.daftar fieldset {
+nav form input {
     border: none;
-    padding: 8px 0 0 0;
-    margin: 0 0 10px 0;
-    display: flex;
 }
 
-.daftar legend {
-    font-style: italic;
+nav form input:focus {
+    outline: none;
+    border-bottom: 2px dotted rgb(153, 153, 153);
 }
 
-.daftar label {
-    font-style: italic;
-    margin-bottom: 8px;
+nav form button {
+    background-color: white;
+    border: none;
+    padding: 0;
 }
 
-.daftar fieldset label {
-    margin-right: 10px;
-    font-style: normal;
-    padding: 4px 0 4px 15px;
-    display: flex;
+nav form button:hover {
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid rgb(206, 206, 206);
+    padding: 5px 10px;
+}
+
+thead {
+    background-color: aliceblue;
+}
+
+td:first-child {
+    text-align: center;
+}
+
+tbody tr td a {
+    text-decoration: none;
+    font-size: small;
+}
+
+tbody a span {
+    /* display: inline-block; */
+    display: none;
+    background-color: rgb(218, 218, 218);
+    padding: 4px 8px;
+    position: relative;
+    color: black;
+    border-radius: 5px;
+}
+
+tbody a span::before {
+    content: "";
+    display: inline-block;
+    border-style: solid;
+    border-width: 7px;
+    border-color: transparent transparent rgb(218, 218, 218) transparent;
+    position: absolute;
+    top: -14px;
+    left: calc(50% - 7px)
+}
+
+/* +++++++++++++++  style input_data.php  ++++++++++++++ */
+
+a#kembali {
+    display: inline-block;
+    margin-bottom: 20px;
+    text-decoration: none;
+}
+
+a#kembali::before {
+    content: "👈 ";
+}
+
+form.input-data {
+
+    background-color: aliceblue;
+    padding: 20px;
+    width: 350px;
+    border-radius: 5px;
+
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    row-gap: 20px;
     align-items: center;
 }
-.daftar fieldset label:hover {
-    cursor: pointer;
+
+form.input-data label {
+    padding-right: 15px;
 }
 
-.daftar input[type=text] {
-    height: 34px;
-    font-size: 17px;
-    color: rgb(117, 117, 117);
-    padding-left: 15px;
-    border: 1px solid rgba(173, 173, 173, 0.623);
-    border-radius: 5px;
-    margin-bottom: 18px;
-}
-
-.daftar input[type=text]:focus {
-    outline: none;
-    border: 1px solid rgba(100, 100, 100, 0.623);
-}
-
-.daftar input[type=radio] {
-    margin-right: 10px;
-}
-
-.daftar button {
-    width: 60%;
-    height: 38px;
-    margin: 12px auto 0;
+form.input-data input[type=text] {
+    height: 24px;
+    font-size: 15px;
+    color: rgb(77, 77, 77);
+    padding-left: 10px;
+    padding-bottom: 0;
+    background-color: aliceblue;
     border: none;
-    border-radius: 5px;
-    background-color: #fdd009;
-    font-weight: bold;
-    color: white;
-    transition: .3s;
+    border-bottom: 1px dotted rgb(151, 151, 151);
+    box-sizing: border-box;
 }
 
-.daftar button:hover {
+form.input-data input[type=text]:focus {
+    outline: none;
+    border-bottom: 2px dotted rgb(153, 153, 153);
+}
+
+form.input-data span {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+form.input-data label:nth-child(5) {
+    align-self: end;
+}
+
+form.input-data button {
+    grid-column: 1 / 3;
+    grid-row: 5 / 6;
+    width: 120px;
+    height: 28px;
+    background-color: aliceblue;
+    border-radius: 3px;
+    border: 1px solid rgb(151, 151, 151);
+    color: rgb(77, 77, 77);
+    justify-self: center;
+}
+
+form.input-data button::before {
+    content: "💾 ";
+}
+
+form.input-data button:hover {
     cursor: pointer;
-    background-color: #ffde4d;
-    transform: scaleX(1.1);
 }
