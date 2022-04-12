@@ -1,11 +1,13 @@
 <?php 
 
-const HOSTNAME = "127.0.0.1";
-const DATABASE = "scmp_latihan_php1";
-const USERNAME = "root";
-const PASSWORD = "";
+$hostname = "localhost";
+$database = "scmp_latihan_php1";
+$username = "root";
+$password = "";
 
-$connection = mysqli_connect(HOSTNAME, USERNAME, PASSWORD, DATABASE);
-$message_connection = ($connection) ? "Database Berhasil Terkoneksi" : "Database Gagal Terkoneksi";
+$koneksi = mysqli_connect($hostname, $username, $password, $database);
+$cek_koneksi = ($koneksi) ? "database berhasil terkoneksi" : "database gagal terkoneksi";
+
+// echo $cek_koneksi;
 
 ?>

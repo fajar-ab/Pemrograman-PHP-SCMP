@@ -8,6 +8,7 @@ $nama = $_POST['nama'];
 $jk = $_POST['jk'];
 $alamat = $_POST['alamat'];
 
+// update data database berdasarkan
 $sql = "UPDATE penduduk
         SET
         nik = '$nik',
@@ -17,10 +18,10 @@ $sql = "UPDATE penduduk
         WHERE id = '$id'
     ";
 
-mysqli_query($connection, $sql);
+mysqli_query($koneksi, $sql);
 
-
-if (mysqli_affected_rows($connection) > 0) {
+// tampilkan pesan
+if (mysqli_affected_rows($koneksi) > 0) {
     echo "
         <script>
             alert('data berhasil di update')

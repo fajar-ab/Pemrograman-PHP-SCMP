@@ -13,7 +13,9 @@
 
         <h2>Input Data Penduduk</h2>
 
-        <a href="index.php" id="kembali">kembali</a>
+        <ul>
+            <li><a href="index.php">👈 kembali</a></li>
+        </ul>
     
         <form class="input-data" action="simpan.php" method="POST" autocomplete="off">
             <label for="nik">Nik</label>

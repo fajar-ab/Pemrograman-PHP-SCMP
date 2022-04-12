@@ -2,19 +2,28 @@
 
 include_once "koneksi.php";
 
-$id = $_GET['id'];
+$keyword = $_POST['keyword'];
 
-$sql = "SELECT * FROM penduduk WHERE id='$id'";
-$tampil = mysqli_query($connection, $sql);
+$sql = "SELECT * FROM penduduk WHERE nama = '$keyword'";
+$tampil = mysqli_query($koneksi, $sql);
+
 
 $data = mysqli_fetch_row($tampil);
+if (is_null($data)) {
+    echo "
+        <script>
+            alert('data tidak ditemukan')
+            document.location.href = 'form_cari.php?cek=Update'
+        </script>
+    ";
+}
 
+$id = $data[0];
 $nik = $data[1];
 $nama = $data[2];
 $jk = $data[3];
 $alamat = $data[4];
 
-// var_dump($data); die;
 
 ?>
 
@@ -25,7 +34,7 @@ $alamat = $data[4];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input Data</title>
+    <title>Update Data</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -34,9 +43,11 @@ $alamat = $data[4];
 
         <h2>Update Data Penduduk</h2>
 
-        <a href="index.php" id="kembali">kembali</a>
+        <ul>
+            <li><a href="index.php">👈 kembali</a></li>
+        </ul>
     
-        <form class="input-data" action="update.php" method="POST" autocomplete="off">
+        <form class="input-data" action="data_update.php" method="POST" autocomplete="off">
 
             <input type="hidden" name="id" id="" value="<?= $id; ?>">
 

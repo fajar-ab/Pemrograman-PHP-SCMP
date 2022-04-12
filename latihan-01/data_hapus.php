@@ -2,14 +2,15 @@
 
 include_once "koneksi.php";
 
-$id = $_GET['id'];
+$keyword = $_POST['keyword'];
 
-$sql = "DELETE FROM penduduk WHERE id='$id'";
-mysqli_query($connection, $sql);
+// hapus data penduduk berdasarkan keyword yang di cari
+$sql = "DELETE FROM penduduk WHERE nama='$keyword'";
+mysqli_query($koneksi, $sql);
 
 
-
-if (mysqli_affected_rows($connection) > 0) {
+// tampilkan pesan
+if (mysqli_affected_rows($koneksi) > 0) {
     echo "
         <script>
             alert('data berhasil di hapus')
@@ -21,6 +22,7 @@ if (mysqli_affected_rows($connection) > 0) {
     echo "
         <script>
             alert('data gagal di hapus')
+            document.location.href = 'form_cari.php?cek=Hapus'
         </script>
     ";
 

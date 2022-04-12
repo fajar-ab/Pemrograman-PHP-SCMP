@@ -1,13 +1,8 @@
 <?php 
 
-require_once "tampil.php";
-require_once "cari.php";
+require_once "data_tampil.php";
 
-$rows = queryTampil("SELECT * FROM penduduk");
-
-if (isset($_POST['cari'])) {
-    $rows = queryCari($_POST['keyword']);
-}
+$rows = tampil("SELECT * FROM penduduk");
 
 ?>
 
@@ -15,6 +10,7 @@ if (isset($_POST['cari'])) {
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <title>Tampil Data</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -25,15 +21,12 @@ if (isset($_POST['cari'])) {
 
         <h2>Data Penduduk</h2>
 
-        <nav>
-            <a href="form_input.php" class="">🙎‍♂️ tambah data</a>
-            <span>
-                <form action="" method="POST">
-                    <button type="submit" name="cari">🔍</button>
-                    <input type="text" name="keyword" autofocus autocomplete="off" placeholder="masukkan keyword pencarian">
-                </form>
-            </span>
-        </nav>
+        <ul>
+            <li><a href="form_input.php" class="">🙎‍♂️ tambah data</a></li>
+            <li><a href="form_cari.php?cek=Cari" class="">🔍 cari data</a></li>
+            <li><a href="form_cari.php?cek=Update" class="">✏️ update data</a></li>
+            <li><a href="form_cari.php?cek=Hapus" class="">🗑️ hapus data</a></li>
+        </ul>
 
         <table>
             <thead>
@@ -43,7 +36,6 @@ if (isset($_POST['cari'])) {
                     <th>Nama</th>
                     <th>Jenis Kelamin</th>
                     <th>Alamat</th>
-                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -56,10 +48,6 @@ if (isset($_POST['cari'])) {
                         <td><?= $row[2]; ?></td>
                         <td><?= $row[3]; ?></td>
                         <td><?= $row[4]; ?></td>
-                        <td style="text-align: center;">
-                            <a href="form_update.php?id=<?= $row[0]; ?>">✏️ <span>edit</span></a> |
-                            <a href="hapus.php?id=<?= $row[0]; ?>">🗑️ <span>hapus</span></a>
-                        </td>
                     </tr>
                 <?php
                     $no++;

@@ -7,9 +7,17 @@ $nama = $_POST['nama'];
 $jk = $_POST['jk'];
 $alamat = $_POST['alamat'];
 
-mysqli_query($connection, "INSERT INTO penduduk (nik, nama, jenis_kelamin, alamat) VALUES ('$nim', '$nama', '$jk', '$alamat')");
+// simpan data kedalam database
+$sql = "INSERT INTO 
+        penduduk (nik, nama, jenis_kelamin, alamat) 
+        VALUES 
+        ('$nim', '$nama', '$jk', '$alamat')
+    ";
 
-if (mysqli_affected_rows($connection) > 0) {
+mysqli_query($koneksi, $sql);
+
+// tampilkan pesan kesalahan
+if (mysqli_affected_rows($koneksi) > 0) {
     echo "
         <script>
             alert('data berhasil di tambahkan')

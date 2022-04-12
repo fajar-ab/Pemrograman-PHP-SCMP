@@ -8,41 +8,21 @@ body {
     margin: 100px;
 }
 
-/* +++++++++++++++  style tampil.php  ++++++++++++++ */
+/* +++++++++++++++  style tampil  ++++++++++++++ */
 
-nav {
+ul {
+    list-style: none;
     margin-bottom: 20px;
-    display: flex;
-}
-
-nav a {
-    display: inline-block;
-    margin-bottom: 10px;
-    text-decoration: none;
-}
-
-nav form {
-    display: inline-block;
-    margin-left: 40px;
-}
-
-nav form input {
-    border: none;
-}
-
-nav form input:focus {
-    outline: none;
-    border-bottom: 2px dotted rgb(153, 153, 153);
-}
-
-nav form button {
-    background-color: white;
-    border: none;
     padding: 0;
 }
 
-nav form button:hover {
-    cursor: pointer;
+li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+li a {
+    text-decoration: none;
 }
 
 table {
@@ -90,17 +70,7 @@ tbody a span::before {
     left: calc(50% - 7px)
 }
 
-/* +++++++++++++++  style input_data.php  ++++++++++++++ */
-
-a#kembali {
-    display: inline-block;
-    margin-bottom: 20px;
-    text-decoration: none;
-}
-
-a#kembali::before {
-    content: "👈 ";
-}
+/* +++++++++++++++  style form  ++++++++++++++ */
 
 form.input-data {
 
@@ -164,4 +134,48 @@ form.input-data button::before {
 form.input-data button:hover {
     cursor: pointer;
     transition: 1s;
+}
+
+
+/* +++++++++++++++  style form cari  ++++++++++++++ */
+
+
+form.cari-data {
+
+    background-color: aliceblue;
+    padding: 20px;
+    width: 350px;
+    border-radius: 5px;
+
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    column-gap: 10px;
+}
+
+form.cari-data input {
+    height: 24px;
+    font-size: 15px;
+    color: rgb(77, 77, 77);
+    padding-left: 10px;
+    padding-bottom: 0;
+    background-color: aliceblue;
+    border: none;
+    border-bottom: 1px dotted rgb(151, 151, 151);
+    box-sizing: border-box;
+}
+
+form.cari-data input:focus {
+    outline: none;
+    border-bottom: 2px dotted rgb(153, 153, 153);
+}
+
+form.cari-data button {
+    background-color: transparent;
+    border: none;
+    transition: .5s;
+}
+
+form.cari-data button:hover {
+    cursor: pointer;
+    transform: scale(1.2);
 }
