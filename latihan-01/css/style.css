@@ -163,4 +163,5 @@ form.input-data button::before {
 
 form.input-data button:hover {
     cursor: pointer;
+    transition: 1s;
 }
