@@ -36,6 +36,7 @@ $rows = tampil("SELECT * FROM penduduk");
                     <th>Nama</th>
                     <th>Jenis Kelamin</th>
                     <th>Alamat</th>
+                    <th>Pendidikan</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,8 +47,9 @@ $rows = tampil("SELECT * FROM penduduk");
                         <td><?= $no; ?></td>
                         <td><?= $row[1]; ?></td>
                         <td><?= $row[2]; ?></td>
-                        <td><?= $row[3]; ?></td>
+                        <td><?= $row[3] == 'L' ? "Laki-laki" : "Perempuan"; ?></td>
                         <td><?= $row[4]; ?></td>
+                        <td><?= $row[5]; ?></td>
                     </tr>
                 <?php
                     $no++;

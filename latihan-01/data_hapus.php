@@ -5,7 +5,7 @@ include_once "koneksi.php";
 $keyword = $_POST['keyword'];
 
 // hapus data penduduk berdasarkan keyword yang di cari
-$sql = "DELETE FROM penduduk WHERE nama='$keyword'";
+$sql = "DELETE FROM penduduk WHERE nik = '$keyword'";
 mysqli_query($koneksi, $sql);
 
 

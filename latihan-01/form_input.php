@@ -17,7 +17,7 @@
             <li><a href="index.php">👈 kembali</a></li>
         </ul>
     
-        <form class="input-data" action="simpan.php" method="POST" autocomplete="off">
+        <form class="input-data" action="data_simpan.php" method="POST" autocomplete="off">
             <label for="nik">Nik</label>
             <input type="text" name="nik" id="nik" required>
             
@@ -27,16 +27,31 @@
             <label>Jenis Kelamin</label>
             <span>
                 <input type="radio" name="jk" id="laki" value="L" required> 
-                <label for="laki"> 🧑 laki-laki</label>
+                <label for="laki">Laki-laki</label>
                 <br>
                 <input type="radio" name="jk" id="perempuan" value="P" required>
-                <label for="perempuan"> 👧 perempuan</label>
+                <label for="perempuan">Perempuan</label>
             </span>
             
             <label for="alamat">Alamat</label>
             <input type="text" name="alamat" id="alamat" required>
+
+            <label>Pendidikan</label>
+            <span>
+                <input type="radio" name="pendidikan" id="sd" value="SD" required> 
+                <label for="sd">SD</label>
+                <br>
+                <input type="radio" name="pendidikan" id="smp" value="SMP" required>
+                <label for="smp">SMP</label>
+                <br>
+                <input type="radio" name="pendidikan" id="sma" value="SMA" required>
+                <label for="sma">SMA</label>
+                <br>
+                <input type="radio" name="pendidikan" id="s1" value="S1" required>
+                <label for="">S1</label>
+            </span>
             
-            <button type="submit"> daftar</button>
+            <button type="submit">💾 daftar</button>
         </form>
         
     </div>

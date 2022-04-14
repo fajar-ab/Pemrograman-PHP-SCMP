@@ -6,12 +6,13 @@ $nim = $_POST['nik'];
 $nama = $_POST['nama'];
 $jk = $_POST['jk'];
 $alamat = $_POST['alamat'];
+$pendidikan = $_POST['pendidikan'];
 
 // simpan data kedalam database
 $sql = "INSERT INTO 
-        penduduk (nik, nama, jenis_kelamin, alamat) 
+        penduduk (nik, nama, jenis_kelamin, alamat, pendidikan) 
         VALUES 
-        ('$nim', '$nama', '$jk', '$alamat')
+        ('$nim', '$nama', '$jk', '$alamat', '$pendidikan')
     ";
 
 mysqli_query($koneksi, $sql);

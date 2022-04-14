@@ -7,6 +7,7 @@ $nik = $_POST['nik'];
 $nama = $_POST['nama'];
 $jk = $_POST['jk'];
 $alamat = $_POST['alamat'];
+$pendidikan = $_POST['pendidikan'];
 
 // update data database berdasarkan
 $sql = "UPDATE penduduk
@@ -14,7 +15,8 @@ $sql = "UPDATE penduduk
         nik = '$nik',
         nama = '$nama',
         jenis_kelamin = '$jk',
-        alamat = '$alamat'
+        alamat = '$alamat',
+        pendidikan = '$pendidikan'
         WHERE id = '$id'
     ";
 

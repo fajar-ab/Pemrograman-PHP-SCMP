@@ -117,7 +117,7 @@ form.input-data label:nth-child(5) {
 
 form.input-data button {
     grid-column: 1 / 3;
-    grid-row: 5 / 6;
+    grid-row: 6 / 7;
     width: 120px;
     height: 28px;
     background-color: aliceblue;
@@ -125,10 +125,6 @@ form.input-data button {
     border: 1px solid rgb(151, 151, 151);
     color: rgb(77, 77, 77);
     justify-self: center;
-}
-
-form.input-data button::before {
-    content: "💾 ";
 }
 
 form.input-data button:hover {
@@ -146,6 +142,7 @@ form.cari-data {
     padding: 20px;
     width: 350px;
     border-radius: 5px;
+    margin-bottom: 50px;
 
     display: grid;
     grid-template-columns: 1fr 120px;
@@ -178,4 +175,8 @@ form.cari-data button {
 form.cari-data button:hover {
     cursor: pointer;
     transform: scale(1.2);
+}
+
+form:hover {
+    box-shadow: 1px 1px 10px rgb(160, 160, 160);
 }

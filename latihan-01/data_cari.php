@@ -1,7 +1,9 @@
 <?php  
 
-include_once "tampil.php";
+include_once "data_tampil.php";
 
-$_POST['keyword'];
+$keyword = $_POST['keyword'];
 
-$sql = "SELECT * FROM penduduk WHERE nama LIKE '%{$keyword}%'";
+$sql = "SELECT * FROM penduduk WHERE nik LIKE '%{$keyword}'";
+
+$rows = tampil($sql);

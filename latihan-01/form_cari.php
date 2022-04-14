@@ -1,8 +1,8 @@
-<?php 
+<?php
 
 include_once "data_tampil.php";
 
-$rows = tampil("SELECT nama FROM penduduk");
+$rows = tampil("SELECT nik FROM penduduk");
 
 if ($_GET['cek'] === "Cari") {
     $action = "";
@@ -39,19 +39,49 @@ if ($_GET['cek'] === "Cari") {
         </ul>
 
         <form class="cari-data" action="<?= $action; ?>" method="POST">
-            <input list="keyword" name="keyword" placeholder="cari berdasarkan nama">
+            <input list="keyword" name="keyword" placeholder="cari berdasarkan nik">
             <datalist id="keyword">
                 <?php foreach ($rows as $row) : ?>
-                <option value="<?= $row[0] ?>">
-                <?php endforeach; ?>
+                    <option value="<?= $row[0] ?>">
+                    <?php endforeach; ?>
             </datalist>
             <button type="submit" name="cari"><?= $button; ?></button>
         </form>
 
-        <?php if (isset($_POST['cari'])) : ?>        
-            
+        <?php
+        if (isset($_POST['cari'])) :
+            include_once "data_cari.php";
+        ?>
+            <table>
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>NIK</th>
+                        <th>Nama</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Alamat</th>
+                        <th>Pendidikan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $no = 1;
+                    foreach ($rows as $row) : ?>
+                        <tr>
+                            <td><?= $no; ?></td>
+                            <td><?= $row[1]; ?></td>
+                            <td><?= $row[2]; ?></td>
+                            <td><?= $row[3] == 'L' ? "Laki-laki" : "Perempuan"; ?></td>
+                            <td><?= $row[4]; ?></td>
+                            <td><?= $row[5]; ?></td>
+                        </tr>
+                    <?php
+                        $no++;
+                    endforeach; ?>
+                </tbody>
+            </table>
         <?php endif; ?>
-        
+
     </div>
 
 </body>

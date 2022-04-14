@@ -4,7 +4,7 @@ include_once "koneksi.php";
 
 $keyword = $_POST['keyword'];
 
-$sql = "SELECT * FROM penduduk WHERE nama = '$keyword'";
+$sql = "SELECT * FROM penduduk WHERE nik = '$keyword'";
 $tampil = mysqli_query($koneksi, $sql);
 
 
@@ -61,23 +61,38 @@ $alamat = $data[4];
             <span>
                 <?php if ($jk === 'L') : ?>
                     <input type="radio" name="jk" id="laki" value="L" required checked> 
-                    <label for="laki"> 🧑 laki-laki</label>
+                    <label for="laki">Laki-laki</label>
                     <br>
                     <input type="radio" name="jk" id="perempuan" value="P" required>
-                    <label for="perempuan"> 👧 perempuan</label>
+                    <label for="perempuan">Perempuan</label>
                 <?php elseif ($jk === 'P') : ?>
                     <input type="radio" name="jk" id="laki" value="L" required> 
-                    <label for="laki"> 🧑 laki-laki</label>
+                    <label for="laki">Laki-laki</label>
                     <br>
                     <input type="radio" name="jk" id="perempuan" value="P" required checked>
-                    <label for="perempuan"> 👧 perempuan</label>
+                    <label for="perempuan">Perempuan</label>
                 <?php endif; ?>
             </span>
             
             <label for="alamat">Alamat</label>
             <input type="text" name="alamat" id="alamat" required value="<?= $alamat; ?>">
+
+            <label>Pendidikan</label>
+            <span>
+                <input type="radio" name="pendidikan" id="sd" value="SD" required> 
+                <label for="sd">SD</label>
+                <br>
+                <input type="radio" name="pendidikan" id="smp" value="SMP" required>
+                <label for="smp">SMP</label>
+                <br>
+                <input type="radio" name="pendidikan" id="sma" value="SMA" required>
+                <label for="sma">SMA</label>
+                <br>
+                <input type="radio" name="pendidikan" id="s1" value="S1" required>
+                <label for="">S1</label>
+            </span>
             
-            <button type="submit"> update</button>
+            <button type="submit">💾 update</button>
         </form>
         
     </div>
