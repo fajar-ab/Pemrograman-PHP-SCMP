@@ -2,7 +2,7 @@
 
 require_once "koneksi.php";
 
-$id = $_POST['id'];
+$nik_lama = $_POST['nik_lama'];
 $nik = $_POST['nik'];
 $nama = $_POST['nama'];
 $jk = $_POST['jk'];
@@ -17,7 +17,7 @@ $sql = "UPDATE penduduk
         jenis_kelamin = '$jk',
         alamat = '$alamat',
         pendidikan = '$pendidikan'
-        WHERE id = '$id'
+        WHERE nik = '$nik_lama'
     ";
 
 mysqli_query($koneksi, $sql);

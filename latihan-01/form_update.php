@@ -18,11 +18,11 @@ if (is_null($data)) {
     ";
 }
 
-$id = $data[0];
-$nik = $data[1];
-$nama = $data[2];
-$jk = $data[3];
-$alamat = $data[4];
+
+$nik = $data[0];
+$nama = $data[1];
+$jk = $data[2];
+$alamat = $data[3];
 
 
 ?>
@@ -49,7 +49,7 @@ $alamat = $data[4];
     
         <form class="input-data" action="data_update.php" method="POST" autocomplete="off">
 
-            <input type="hidden" name="id" id="" value="<?= $id; ?>">
+            <input type="hidden" name="nik_lama" id="" value="<?= $nik; ?>">
 
             <label for="nik">Nik</label>
             <input type="text" name="nik" id="nik" required value="<?= $nik; ?>">

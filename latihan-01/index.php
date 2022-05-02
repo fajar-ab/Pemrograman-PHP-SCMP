@@ -45,11 +45,11 @@ $rows = tampil("SELECT * FROM penduduk");
                 foreach ($rows as $row) : ?>
                     <tr>
                         <td><?= $no; ?></td>
+                        <td><?= $row[0]; ?></td>
                         <td><?= $row[1]; ?></td>
-                        <td><?= $row[2]; ?></td>
-                        <td><?= $row[3] == 'L' ? "Laki-laki" : "Perempuan"; ?></td>
+                        <td><?= $row[2] == 'L' ? "Laki-laki" : "Perempuan"; ?></td>
+                        <td><?= $row[3]; ?></td>
                         <td><?= $row[4]; ?></td>
-                        <td><?= $row[5]; ?></td>
                     </tr>
                 <?php
                     $no++;
