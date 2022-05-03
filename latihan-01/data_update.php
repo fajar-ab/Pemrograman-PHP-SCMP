@@ -3,10 +3,10 @@
 require_once "koneksi.php";
 
 $nik_lama = $_POST['nik_lama'];
-$nik = $_POST['nik'];
-$nama = $_POST['nama'];
+$nik = htmlspecialchars($_POST['nik']);
+$nama = htmlspecialchars($_POST['nama']);
 $jk = $_POST['jk'];
-$alamat = $_POST['alamat'];
+$alamat = htmlspecialchars($_POST['alamat']);
 $pendidikan = $_POST['pendidikan'];
 
 // update data database berdasarkan
@@ -31,13 +31,11 @@ if (mysqli_affected_rows($koneksi) > 0) {
         </script>
     ";
 } else {
-
     echo "
         <script>
             alert('data gagal di diupdate')
         </script>
     ";
-
 }
 
 

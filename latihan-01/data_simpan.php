@@ -2,10 +2,10 @@
 
 include_once "koneksi.php";
 
-$nim = $_POST['nik'];
-$nama = $_POST['nama'];
+$nim = htmlspecialchars($_POST['nik']);
+$nama = htmlspecialchars($_POST['nama']);
 $jk = $_POST['jk'];
-$alamat = $_POST['alamat'];
+$alamat = htmlspecialchars($_POST['alamat']);
 $pendidikan = $_POST['pendidikan'];
 
 // simpan data kedalam database

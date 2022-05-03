@@ -18,11 +18,11 @@ if (is_null($data)) {
     ";
 }
 
-
 $nik = $data[0];
 $nama = $data[1];
 $jk = $data[2];
 $alamat = $data[3];
+$pendidikan = $data[4];
 
 
 ?>
@@ -59,19 +59,11 @@ $alamat = $data[3];
             
             <label>Jenis Kelamin</label>
             <span>
-                <?php if ($jk === 'L') : ?>
-                    <input type="radio" name="jk" id="laki" value="L" required checked> 
-                    <label for="laki">Laki-laki</label>
-                    <br>
-                    <input type="radio" name="jk" id="perempuan" value="P" required>
-                    <label for="perempuan">Perempuan</label>
-                <?php elseif ($jk === 'P') : ?>
-                    <input type="radio" name="jk" id="laki" value="L" required> 
-                    <label for="laki">Laki-laki</label>
-                    <br>
-                    <input type="radio" name="jk" id="perempuan" value="P" required checked>
-                    <label for="perempuan">Perempuan</label>
-                <?php endif; ?>
+                <input type="radio" name="jk" id="laki" value="L" required> 
+                <label for="laki">Laki-laki</label>
+                <br>
+                <input type="radio" name="jk" id="perempuan" value="P" required>
+                <label for="perempuan">Perempuan</label>
             </span>
             
             <label for="alamat">Alamat</label>
@@ -94,8 +86,13 @@ $alamat = $data[3];
             
             <button type="submit">💾 update</button>
         </form>
-        
+
     </div>
 
+<script>
+    const jenisKelamin = "<?= $jk ?>";
+    const pendidikan = "<?= $pendidikan ?>";
+</script>
+<script src="js/script.js"></script>
 </body>
 </html>
