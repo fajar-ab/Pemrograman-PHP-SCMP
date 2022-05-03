@@ -39,7 +39,7 @@ if ($_GET['cek'] === "Cari") {
         </ul>
 
         <form class="cari-data" action="<?= $action; ?>" method="POST">
-            <input list="keyword" name="keyword" placeholder="cari berdasarkan nik">
+            <input list="keyword" name="keyword" placeholder="cari berdasarkan nik" autofocus>
             <datalist id="keyword">
                 <?php foreach ($rows as $row) : ?>
                     <option value="<?= $row[0] ?>">
