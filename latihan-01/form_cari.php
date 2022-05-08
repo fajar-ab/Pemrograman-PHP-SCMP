@@ -71,7 +71,7 @@ if ($_GET['cek'] === "Cari") {
                             <td><?= $no; ?></td>
                             <td><?= $row[0]; ?></td>
                             <td><?= $row[1]; ?></td>
-                            <td><?= $row[2] == 'L' ? "Laki-laki" : "Perempuan"; ?></td>
+                            <td><?= $row[2]; ?></td>
                             <td><?= $row[3]; ?></td>
                             <td><?= $row[4]; ?></td>
                         </tr>
@@ -79,6 +79,13 @@ if ($_GET['cek'] === "Cari") {
                         $no++;
                     endforeach; ?>
                 </tbody>
+                <?php if (count($rows) === 0) : ?>
+                <tfoot>
+                    <tr>
+                        <th colspan="6">Tidak ada data</th>
+                    </tr>
+                </tfoot>
+            <?php endif; ?>
             </table>
         <?php endif; ?>
 

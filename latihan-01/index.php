@@ -2,7 +2,14 @@
 
 require_once "data_tampil.php";
 
-$rows = tampil("SELECT * FROM penduduk");
+$sql = "SELECT nik, nama, 
+        CASE jenis_kelamin 
+            WHEN 'L' THEN 'Laki-laki' 
+            WHEN 'P' THEN 'Perempuan' 
+        END AS jenis_kelamin, alamat, pendidikan 
+        FROM penduduk";
+
+$rows = tampil($sql);
 
 ?>
 
@@ -47,7 +54,7 @@ $rows = tampil("SELECT * FROM penduduk");
                         <td><?= $no; ?></td>
                         <td><?= $row[0]; ?></td>
                         <td><?= $row[1]; ?></td>
-                        <td><?= $row[2] == 'L' ? "Laki-laki" : "Perempuan"; ?></td>
+                        <td><?= $row[2]; ?></td>
                         <td><?= $row[3]; ?></td>
                         <td><?= $row[4]; ?></td>
                     </tr>
@@ -55,6 +62,13 @@ $rows = tampil("SELECT * FROM penduduk");
                     $no++;
                 endforeach; ?>
             </tbody>
+            <?php if (count($rows) === 0) : ?>
+                <tfoot>
+                    <tr>
+                        <th colspan="6">Tidak ada data</th>
+                    </tr>
+                </tfoot>
+            <?php endif; ?>
         </table>
 
     </div>

@@ -10,12 +10,12 @@ $tampil = mysqli_query($koneksi, $sql);
 
 $data = mysqli_fetch_row($tampil);
 if (is_null($data)) {
-    echo "
+    echo <<<JS
         <script>
             alert('data tidak ditemukan')
             document.location.href = 'form_cari.php?cek=Update'
         </script>
-    ";
+    JS;
 }
 
 $nik = $data[0];

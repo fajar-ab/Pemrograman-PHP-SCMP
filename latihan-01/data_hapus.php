@@ -11,19 +11,19 @@ mysqli_query($koneksi, $sql);
 
 // tampilkan pesan
 if (mysqli_affected_rows($koneksi) > 0) {
-    echo "
+    echo <<<ALERT
         <script>
             alert('data berhasil di hapus')
             document.location.href = 'index.php'
         </script>
-    ";
+    ALERT;
 } else {
 
-    echo "
+    echo <<<ALERT
         <script>
             alert('data gagal di hapus')
             document.location.href = 'form_cari.php?cek=Hapus'
         </script>
-    ";
+    ALERT;
 
 }
