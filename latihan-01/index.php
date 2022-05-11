@@ -30,9 +30,9 @@ $rows = tampil($sql);
 
         <ul>
             <li><a href="form_input.php" class="">🙎‍♂️ tambah data</a></li>
-            <li><a href="form_cari.php?cek=Cari" class="">🔍 cari data</a></li>
-            <li><a href="form_cari.php?cek=Update" class="">✏️ update data</a></li>
-            <li><a href="form_cari.php?cek=Hapus" class="">🗑️ hapus data</a></li>
+            <li><a href="form_cari.php?cek=cari" class="">🔍 cari data</a></li>
+            <li><a href="form_cari.php?cek=update" class="">✏️ update data</a></li>
+            <li><a href="form_cari.php?cek=hapus" class="">🗑️ hapus data</a></li>
         </ul>
 
         <table>

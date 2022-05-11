@@ -24,18 +24,18 @@ mysqli_query($koneksi, $sql);
 
 // tampilkan pesan
 if (mysqli_affected_rows($koneksi) > 0) {
-    echo "
+    echo <<<ALERT
         <script>
             alert('data berhasil di update')
             document.location.href = 'index.php'
         </script>
-    ";
+    ALERT;
 } else {
-    echo "
+    echo <<<ALERT
         <script>
             alert('data gagal di diupdate')
         </script>
-    ";
+    ALERT;
 }
 
 

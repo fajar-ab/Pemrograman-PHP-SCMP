@@ -4,15 +4,19 @@ include_once "data_tampil.php";
 
 $rows = tampil("SELECT nik FROM penduduk");
 
-if ($_GET['cek'] === "Cari") {
-    $action = "";
-    $button = "🔎 cari";
-} elseif ($_GET['cek'] === "Update") {
-    $action = "form_update.php";
-    $button = "✏️ update";
-} elseif ($_GET['cek'] === "Hapus") {
-    $action = "data_hapus.php";
-    $button = "🗑️ hapus";
+switch ($_GET['cek']) {
+    case 'cari':
+        $action = "";
+        $button = "🔎 cari";
+        break;
+    case 'update':
+        $action = "form_update.php";
+        $button = "✏️ update";
+        break;
+    case 'hapus':
+        $action = "data_hapus.php";
+        $button = "🗑️ hapus";
+        break;
 }
 
 ?>
@@ -32,7 +36,7 @@ if ($_GET['cek'] === "Cari") {
 
     <div class="container">
 
-        <h2><?= $_GET['cek'] ?> Data Penduduk</h2>
+        <h2><?= ucfirst($_GET['cek']) ?> Data Penduduk</h2>
 
         <ul>
             <li><a href="index.php">👈 kembali</a></li>
@@ -43,7 +47,7 @@ if ($_GET['cek'] === "Cari") {
             <datalist id="keyword">
                 <?php foreach ($rows as $row) : ?>
                     <option value="<?= $row[0] ?>">
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
             </datalist>
             <button type="submit" name="cari"><?= $button; ?></button>
         </form>
