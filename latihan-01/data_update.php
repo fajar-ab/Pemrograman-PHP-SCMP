@@ -1,6 +1,7 @@
 <?php 
 
 require_once "koneksi.php";
+include_once "popup.php";
 
 $nik_lama = $_POST['nik_lama'];
 $nik = htmlspecialchars($_POST['nik']);
@@ -24,18 +25,9 @@ mysqli_query($koneksi, $sql);
 
 // tampilkan pesan
 if (mysqli_affected_rows($koneksi) > 0) {
-    echo <<<ALERT
-        <script>
-            alert('data berhasil di update')
-            document.location.href = 'index.php'
-        </script>
-    ALERT;
+    popup("data berhasil di update", "index.php");
 } else {
-    echo <<<ALERT
-        <script>
-            alert('data gagal di diupdate')
-        </script>
-    ALERT;
+    popup("data gagal di diupdate", "form_cari.php?cek=update");
 }
 
 

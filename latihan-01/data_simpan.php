@@ -1,6 +1,7 @@
 <?php 
 
 include_once "koneksi.php";
+include_once "popup.php";
 
 $nim = htmlspecialchars($_POST['nik']);
 $nama = htmlspecialchars($_POST['nama']);
@@ -19,18 +20,9 @@ mysqli_query($koneksi, $sql);
 
 // tampilkan pesan
 if (mysqli_affected_rows($koneksi) > 0) {
-    echo <<<ALERT
-        <script>
-            alert('data berhasil di tambahkan')
-            document.location.href = 'index.php'
-        </script>
-    ALERT;
+    popup("data berhasil di tambahkan", "index.php");
 } else {
-    echo <<<ALERT
-        <script>
-            alert('data gagal di tambahkan')
-        </script>
-    ALERT;
+    popup("data gagal di tambahkan");
 }
 
 ?>

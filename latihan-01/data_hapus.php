@@ -1,6 +1,7 @@
 <?php 
 
 include_once "koneksi.php";
+include_once "popup.php";
 
 $keyword = $_POST['keyword'];
 
@@ -11,19 +12,7 @@ mysqli_query($koneksi, $sql);
 
 // tampilkan pesan
 if (mysqli_affected_rows($koneksi) > 0) {
-    echo <<<ALERT
-        <script>
-            alert('data berhasil di hapus')
-            document.location.href = 'index.php'
-        </script>
-    ALERT;
+    popup("data berhasil di hapus", "index.php");
 } else {
-
-    echo <<<ALERT
-        <script>
-            alert('data gagal di hapus')
-            document.location.href = 'form_cari.php?cek=Hapus'
-        </script>
-    ALERT;
-
+    popup("tidak ada data yang dihapus", "form_cari.php?cek=hapus");
 }

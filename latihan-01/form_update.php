@@ -1,6 +1,7 @@
 <?php 
 
 include_once "koneksi.php";
+include_once "popup.php";
 
 $keyword = $_POST['keyword'];
 
@@ -10,12 +11,7 @@ $tampil = mysqli_query($koneksi, $sql);
 
 $data = mysqli_fetch_row($tampil);
 if (is_null($data)) {
-    echo <<<JS
-        <script>
-            alert('data tidak ditemukan')
-            document.location.href = 'form_cari.php?cek=Update'
-        </script>
-    JS;
+    popup("data tidak ditemukan", "form_cari.php?cek=update");
 }
 
 $nik = $data[0];
@@ -81,7 +77,7 @@ $pendidikan = $data[4];
                 <label for="sma">SMA</label>
                 <br>
                 <input type="radio" name="pendidikan" id="s1" value="S1" required>
-                <label for="">S1</label>
+                <label for="s1">S1</label>
             </span>
             
             <button type="submit">💾 update</button>
