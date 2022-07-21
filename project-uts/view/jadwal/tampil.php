@@ -79,8 +79,11 @@ $dataJadwal = dataJadwal();
 <!-- card table jadwal -->
 
 
-<div class="fixed-action-btn" style="height: 80px; right: 20px">
-  <a class="btn btn-floating btn-primary btn-lg" style="background-color: rgb(244, 67, 54);">
-    <i class="fas fa-plus" style="font-size: 1.3em"></i>
+<!-- menu aksi -->
+<div class="fixed-action-btn" style="right: 1rem">
+  <a class=" btn btn-floating btn-primary btn-lg" data-mdb-toggle="tooltip" data-mdb-placement="left" title="Tambah Jadawal" style="background-color: #f44336">
+    <i class="fas fa-plus"></i>
   </a>
+  <ul class="list-unstyled"></ul>
 </div>
+<!-- menu aksi -->

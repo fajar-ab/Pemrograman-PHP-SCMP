@@ -11,7 +11,7 @@
   <title>Jadwal</title>
 </head>
 
-<body>
+<body class="bg-linght">
 
   <!-- judul -->
   <div class="bg-dark p-4 ">

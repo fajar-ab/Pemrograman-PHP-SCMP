@@ -36,8 +36,16 @@ $dataMatakuliah = dataMatakuliah();
                     <button type="button" class="btn btn-link btn-rounded btn-sm dropdown-toggle" data-mdb-toggle="dropdown" aria-expanded="false">
                     </button>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Edit</a></li>
-                      <li><a class="dropdown-item" href="#">Hapus</a></li>
+                      <li>
+                        <a class="dropdown-item" href="#">
+                          <i class="fa-solid fa-pen-to-square me-1"></i>Edit
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">
+                          <i class="fa-solid fa-trash me-1"></i>Hapus
+                        </a>
+                      </li>
                     </ul>
                   </div>
                 </td>
@@ -67,8 +75,11 @@ $dataMatakuliah = dataMatakuliah();
 </div>
 <!-- card table -->
 
-<div class="fixed-action-btn" style="height: 80px; right: 20px">
-  <a class="btn btn-floating btn-primary btn-lg" style="background-color: rgb(244, 67, 54);">
-    <i class="fas fa-plus" style="font-size: 1.3em"></i>
+<!-- menu aksi -->
+<div class="fixed-action-btn">
+  <a class=" btn btn-floating btn-primary btn-lg" data-mdb-toggle="tooltip" data-mdb-placement="left" title="Tambah Jadawal" style="background-color: #f44336">
+    <i class="fas fa-plus"></i>
   </a>
+  <ul class="list-unstyled"></ul>
 </div>
+<!-- menu aksi -->
