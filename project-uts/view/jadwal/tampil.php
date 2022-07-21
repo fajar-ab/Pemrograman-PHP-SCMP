@@ -41,7 +41,7 @@ $dataJadwal = dataJadwal();
                         </a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="#">
+                        <a href="#" class="dropdown-item" data-mdb-toggle="modal" data-mdb-target="#hapus">
                           <i class="fa-solid fa-trash me-1"></i>Hapus
                         </a>
                       </li>
@@ -63,6 +63,24 @@ $dataJadwal = dataJadwal();
                 </td>
                 <td><?= $jadwal[4] ?></td>
               </tr>
+
+              <!-- modals -->
+              <div class="modal fade" id="hapus" tabindex="-1" aria-labelledby="modalHapus" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-sm">
+                  <div class="modal-content">
+                    <div class="modal-body text-center pt-4">
+                      <p class="m-0">Anda yakin ingin menghapus data</p>
+                    </div>
+                    <div class="modal-footer p-1 mx-auto border-0">
+                      <button type="button" class="btn btn-sm btn-secondary d-block" data-mdb-dismiss="modal">
+                        Batal
+                      </button>
+                      <a class="btn btn-sm btn-primary">Hapus</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- modals -->
             <?php endforeach ?>
           </tbody>
           <!-- table body -->
