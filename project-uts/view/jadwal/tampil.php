@@ -1,14 +1,29 @@
 <?php
 require_once __DIR__ . '/../../src/jadwal/function.php';
+require_once __DIR__ . '/../../src/helper/pesan.php';
 
+// ambil data jadwal dari database
 $dataJadwal = dataJadwal();
+
+// hapus data
+if (isset($_GET['hapus'])) {
+  jadwalHapus($_GET['hapus']);
+}
+
+// pesan keberhasilan modifikasi data
+if (isset($_SESSION['modifikasi'])) {
+  tampilPesan($_SESSION['modifikasi']);
+}
+
 ?>
 
 <!-- card table jadwal -->
 <div class="card">
-  <div class="card-header text-muted">
-    <i class="fa-solid fa-table me-1"></i>
-    List Jadwal
+  <div class="card-header">
+    <div class="user-select-none text-muted">
+      <i class="fa-solid fa-table me-2"></i>
+      List Jadwal
+    </div>
   </div>
   <div class="card-body">
     <!-- table jadwal matakuliah -->
@@ -36,7 +51,7 @@ $dataJadwal = dataJadwal();
                     </button>
                     <ul class="dropdown-menu">
                       <li>
-                        <a class="dropdown-item" href="#">
+                        <a href="?halaman=ubah-jadwal&id=<?= $jadwal[5] ?>" class="dropdown-item" href="#">
                           <i class="fa-solid fa-pen-to-square me-1"></i>Edit
                         </a>
                       </li>
@@ -75,7 +90,7 @@ $dataJadwal = dataJadwal();
                       <button type="button" class="btn btn-sm btn-secondary d-block" data-mdb-dismiss="modal">
                         Batal
                       </button>
-                      <a class="btn btn-sm btn-primary">Hapus</a>
+                      <a href="?halaman=jadwal&hapus=<?= $jadwal[5] ?>" class="btn btn-sm btn-primary">Hapus</a>
                     </div>
                   </div>
                 </div>
@@ -86,7 +101,13 @@ $dataJadwal = dataJadwal();
           <!-- table body -->
         <?php else : ?>
           <tfoot>
-            <th colspan="6"></th>
+            <th colspan="6" class="text-muted text-center">
+              <div class="h4">
+                <i class="fa-solid fa-face-frown mb-2"></i>
+                <br>
+                Data Tidak Ditemukan!
+              </div>
+            </th>
           </tfoot>
         <?php endif ?>
       </table>
@@ -97,9 +118,9 @@ $dataJadwal = dataJadwal();
 <!-- card table jadwal -->
 
 
-<!-- menu aksi -->
+<!-- menu aksi tambah jadwal-->
 <div class="fixed-action-btn" style="right: 1rem">
-  <a class=" btn btn-floating btn-primary btn-lg" data-mdb-toggle="tooltip" data-mdb-placement="left" title="Tambah Jadawal" style="background-color: #f44336">
+  <a href="?halaman=tambah-jadwal" class=" btn btn-floating btn-primary btn-lg" data-mdb-toggle="tooltip" data-mdb-placement="left" title="Tambah Jadawal" style="background-color: #f44336">
     <i class="fas fa-plus"></i>
   </a>
   <ul class="list-unstyled"></ul>

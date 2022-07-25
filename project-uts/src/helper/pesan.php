@@ -1,19 +1,32 @@
 <?php
 
-const SUCCESS = 1;
-
-function alert(string $pesan, int $icon = SUCCESS): string
+function tampilPesan($data)
 {
-  switch ($icon) {
-    case 1:
-      return <<<ALERT
-      <div class="position-absolute top-50 start-50 translate-middle">
-        <div class="alert alert-primary d-flex align-items-center p-3" role="alert">
-          <i class="fas fa-check-circle me-2"></i>
-          <div>Lorem ipsum dolor sit amet consecte dddkdkd</div>
-        </div>
-      </div>
-      ALERT;
+  require_once __DIR__ . '/alert.php';
+
+  switch ($data['aksi']) {
+    case 'simpan':
+      if ($data['keberhasilan']) {
+        alert('data berhasil disimpan!', ALERT_SUCCESS);
+      } else {
+        alert('data gagal disimpan!', ALERT_DANGER);
+      }
+      break;
+    case 'hapus':
+      if ($data['keberhasilan']) {
+        alert('data berhasil dihapus!', ALERT_SUCCESS);
+      } else {
+        alert('data gagal disimpan!', ALERT_DANGER);
+      }
+      break;
+    case 'ubah':
+      if ($data['keberhasilan']) {
+        alert('data berhasil diubah!', ALERT_SUCCESS);
+      } else {
+        alert('data gagal diubah!', ALERT_DANGER);
+      }
       break;
   }
+
+  session_destroy();
 }

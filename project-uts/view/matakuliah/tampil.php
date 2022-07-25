@@ -8,9 +8,11 @@ $dataMatakuliah = dataMatakuliah();
 
 <!-- card table -->
 <div class="card">
-  <div class="card-header text-muted">
-    <i class="fa-solid fa-table me-1"></i>
-    List Matakuliah
+  <div class="card-header">
+    <div class="user-select-none text-muted">
+      <i class="fa-solid fa-table me-2"></i>
+      List Matakuliah
+    </div>
   </div>
   <div class="card-body">
 
@@ -96,9 +98,9 @@ $dataMatakuliah = dataMatakuliah();
 </div>
 <!-- card table -->
 
-<!-- menu aksi -->
+<!-- menu aksi tambah matakuliah-->
 <div class="fixed-action-btn" style="right: 1rem">
-  <a class=" btn btn-floating btn-primary btn-lg" data-mdb-toggle="tooltip" data-mdb-placement="left" title="Tambah Jadawal" style="background-color: #f44336">
+  <a href="?halaman=tambah-matakuliah" class="btn btn-floating btn-primary btn-lg" data-mdb-toggle="tooltip" data-mdb-placement="left" title="Tambah Jadawal" style="background-color: #f44336">
     <i class="fas fa-plus"></i>
   </a>
   <ul class="list-unstyled"></ul>

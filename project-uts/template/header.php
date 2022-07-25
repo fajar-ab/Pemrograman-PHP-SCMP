@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="assets/fontawesome/css/all.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.3.0/mdb.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets\my\css\style.css">
   <title>Jadwal</title>
 </head>
 

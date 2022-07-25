@@ -1,0 +1,8 @@
+.sembunyikan {
+  opacity: 0;
+}
+
+#pemberitahuan {
+  opacity: 1;
+  transition: opacity 1s linear;
+}
