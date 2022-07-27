@@ -32,11 +32,13 @@ if (isset($_POST['edit'])) {
       <div class="mb-3">
         <div class="row">
           <div class="col-md-2">
-            <label class="form-label" for="hari">Hari</label>
+            <label class="form-label" for="hari">
+              <i class="fa-solid fa-calendar-day me-2"></i>Hari
+            </label>
           </div>
           <div class="col-md-6">
-            <select class="form-select" name="hari" id="hari" required>
-              <option class="bg-primary text-white fw-bold" value="" selected>— Pilih Hari</option>
+            <select class="form-select py-1" name="hari" id="hari" data-hari="<?= $dataJadwal[1] ?>" required>
+              <option value="" disabled>— Pilih Hari</option>
               <option value="senin">senin</option>
               <option value="selasa">selasa</option>
               <option value="rabu">rabu</option>
@@ -51,11 +53,13 @@ if (isset($_POST['edit'])) {
       <div class="mb-3">
         <div class="row">
           <div class="col-md-2">
-            <label class="form-label" for="matakuliah">Matakuliah</label>
+            <label class="form-label" for="matakuliah">
+              <i class="fa-solid fa-book-open me-2"></i>Matakuliah
+            </label>
           </div>
           <div class="col-md-6">
-            <select class="form-select" name="matakuliah" id="matakuliah" required>
-              <option class="bg-primary text-white fw-bold" value="">— Pilih Matakuliah</option>
+            <select class="form-select py-1" name="matakuliah" id="matakuliah" required>
+              <option value="" disabled>— Pilih Matakuliah</option>
 
               <?php foreach ($dataMatakuliah as $matakuliah) : ?>
                 <?php if ($matakuliah[0] == $dataJadwal[2]) : ?>
@@ -73,7 +77,9 @@ if (isset($_POST['edit'])) {
       <div class="mb-4">
         <div class="row">
           <div class="col-md-2">
-            <label for="pukul" class="form-label">Pukul</label>
+            <label for="pukul" class="form-label">
+              <i class="fa-solid fa-clock me-2"></i>Pukul
+            </label>
           </div>
           <div class="col-md-6">
             <div class="input-group">

@@ -126,3 +126,6 @@ if (isset($_SESSION['modifikasi'])) {
   <ul class="list-unstyled"></ul>
 </div>
 <!-- menu aksi -->
+
+<!-- javascript -->
+<script src="assets\my\js\jadwal.js"></script>

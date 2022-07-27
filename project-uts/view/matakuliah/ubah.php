@@ -1,15 +1,22 @@
 <?php
 require_once __DIR__ . '/../../src/matakuliah/function.php';
 
-if (isset($_POST['tambah'])) {
-  matakuliahSimpan($_POST);
+// ambil data matakuliah
+$id = $_GET['id'];
+$sql = 'SELECT * FROM tb_mata_kuliah WHERE id_mata_kuliah = ?';
+$dataMatakuliah = matakuliahCari($sql, [$id])[0];
+
+// ubah data matakuliah
+if (isset($_POST['ubah'])) {
+  matakuliahUbah($_POST);
 }
+
 ?>
 
 <div class="card">
   <div class="card-header text-muted user-select-none">
     <i class="fa-solid fa-list-check me-2"></i>
-    Matakuliah Baru
+    Ubah Matakuliah
   </div>
 
   <div class="card-body px-md-5">
@@ -22,7 +29,7 @@ if (isset($_POST['tambah'])) {
           </label>
         </div>
         <div class="col-md-6">
-          <input class="form-control" type="text" id="inputKode" name="id_matakuliah" required>
+          <input class="form-control" type="text" id="inputKode" name="id_matakuliah" value="<?= $dataMatakuliah[0] ?>" readonly required>
         </div>
       </div>
 
@@ -33,7 +40,7 @@ if (isset($_POST['tambah'])) {
           </label>
         </div>
         <div class="col-md-6">
-          <input class="form-control" type="text" id="inputNamaMatakuliah" name="nama_matakuliah" required>
+          <input class="form-control" type="text" id="inputNamaMatakuliah" name="nama_matakuliah" value="<?= $dataMatakuliah[1] ?>" required>
         </div>
       </div>
 
@@ -44,7 +51,7 @@ if (isset($_POST['tambah'])) {
           </label>
         </div>
         <div class="col-md-6">
-          <input class="form-control" type="text" id="inputDosen" name="dosen" required>
+          <input class="form-control" type="text" id="inputDosen" name="dosen" value="<?= $dataMatakuliah[2] ?>" required>
         </div>
       </div>
 
@@ -55,7 +62,7 @@ if (isset($_POST['tambah'])) {
           </label>
         </div>
         <div class="col-md-6">
-          <select class="form-select py-1" id="inputRuangan" name="ruangan">
+          <select class="form-select py-1" id="inputRuangan" name="ruangan" data-ruangan="<?= $dataMatakuliah[3] ?>" required>
             <option value="" disabled selected>— Pilih Ruangan</option>
             <option value="RUANG01">RUANG01</option>
             <option value="RUANG02">RUANG02</option>
@@ -71,7 +78,7 @@ if (isset($_POST['tambah'])) {
           </label>
         </div>
         <div class="col-md-2">
-          <input class="form-control" type="number" id="inputSks" name="sks" required>
+          <input class="form-control" type="number" id="inputSks" name="sks" value="<?= $dataMatakuliah[4] ?>" required>
         </div>
       </div>
 
@@ -82,13 +89,13 @@ if (isset($_POST['tambah'])) {
           </label>
         </div>
         <div class="col-md-2">
-          <input class="form-control" type="number" id="inputSemester" name="semester" required>
+          <input class="form-control" type="number" id="inputSemester" name="semester" value="<?= $dataMatakuliah[5] ?>" required>
         </div>
       </div>
 
-      <button class="btn btn-primary px-3" type="submit" name="tambah">
+      <button class="btn btn-primary px-3" type="submit" name="ubah">
         <!-- <i class="fa-solid fa-plus me-2"></i> -->
-        tambah
+        uabah
       </button>
       <a href="?halaman=matakuliah" class="btn btn-success px-3 ms-2" type="submit">kembali</a>
     </form>

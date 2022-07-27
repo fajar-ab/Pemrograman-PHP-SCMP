@@ -2,7 +2,13 @@
 require_once __DIR__ . '/../../src/matakuliah/function.php';
 require_once __DIR__ . '/../../src/helper/pesan.php';
 
+// ambil data matakuiah
 $dataMatakuliah = dataMatakuliah();
+
+// hapus
+if (isset($_GET['hapus'])) {
+  matakuliahHapus($_GET['hapus']);
+}
 ?>
 
 
@@ -42,7 +48,7 @@ $dataMatakuliah = dataMatakuliah();
                     </button>
                     <ul class="dropdown-menu">
                       <li>
-                        <a class="dropdown-item" href="#" data-mdb-toggle="modal" data-mdb-target="#hapus">
+                        <a class="dropdown-item" href="?halaman=ubah-matakuliah&id=<?= $matakuliah[0] ?>">
                           <i class="fa-solid fa-pen-to-square me-1"></i>Edit
                         </a>
                       </li>
@@ -78,7 +84,7 @@ $dataMatakuliah = dataMatakuliah();
                       <button type="button" class="btn btn-sm btn-secondary d-block" data-mdb-dismiss="modal">
                         Batal
                       </button>
-                      <a class="btn btn-sm btn-primary">Hapus</a>
+                      <a href="?halaman=matakuliah&hapus=<?= $matakuliah[0] ?>" class="btn btn-sm btn-primary">Hapus</a>
                     </div>
                   </div>
                 </div>
@@ -106,3 +112,6 @@ $dataMatakuliah = dataMatakuliah();
   <ul class="list-unstyled"></ul>
 </div>
 <!-- menu aksi -->
+
+<!-- javascript -->
+<script src="assets\my\js\matakuliah.js"></script>

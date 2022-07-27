@@ -22,6 +22,9 @@ switch ($halaman) {
   case 'tambah-matakuliah':
     require_once __DIR__ . "/view/matakuliah/tambah.php";
     break;
+  case 'ubah-matakuliah':
+    require_once __DIR__ . "/view/matakuliah/ubah.php";
+    break;
 
     // default
   default:

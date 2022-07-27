@@ -32,16 +32,77 @@ function matakuliahSimpan($data)
 {
   global $koneksi;
 
-  $sql = "INSERT INTO tb_matakuliah VALUES (NULL, ?, ?, ?)";
+  $sql = "INSERT INTO tb_mata_kuliah VALUES (?, ?, ?, ?, ?, ?)";
   $stmt = $koneksi->prepare($sql);
-  $stmt->bind_param('sss',);
+  $stmt->bind_param('ssssii', $idMatakuliah, $nama, $dosen, $ruangan, $sks, $semester);
 
-  $hari         = $data['hari'];
-
+  $idMatakuliah = htmlspecialchars($data['id_matakuliah']);
+  $nama         = htmlspecialchars($data['nama_matakuliah']);
+  $dosen        = htmlspecialchars($data['dosen']);
+  $ruangan      = $data['ruangan'];
+  $sks          = $data['sks'];
+  $semester     = $data['semester'];
   $stmt->execute();
 
-  return $stmt->affected_rows;
+  if ($stmt->affected_rows > 0) {
+
+    header('location: index.php?halaman=matakuliah');
+  } else {
+
+    header('location: index.php?halaman=tambah-matakuliah');
+  }
 }
+
+function matakuliahUbah($data)
+{
+  global $koneksi;
+
+  $sql = "UPDATE `tb_mata_kuliah` SET 
+    `nama` = ?, 
+    `dosen` = ?, 
+    `ruangan` = ?, 
+    `sks` = ?, 
+    `semester` = ? 
+  WHERE `tb_mata_kuliah`.`id_mata_kuliah` = ?";
+  var_dump($data);
+
+  $stmt = $koneksi->prepare($sql);
+  $stmt->bind_param('sssiis', $nama, $dosen, $ruangan, $sks, $semester, $idMatakuliah);
+
+  $idMatakuliah = htmlspecialchars($data['id_matakuliah']);
+  $nama         = htmlspecialchars($data['nama_matakuliah']);
+  $dosen        = htmlspecialchars($data['dosen']);
+  $ruangan      = $data['ruangan'];
+  $sks          = $data['sks'];
+  $semester     = $data['semester'];
+  $stmt->execute();
+
+  if ($stmt->affected_rows > 0) {
+
+    header('location: index.php?halaman=matakuliah');
+  } else {
+
+    header('location: index.php?halaman=ubah-matakuliah&id=' . $idMatakuliah);
+  }
+}
+
+function matakuliahHapus($id)
+{
+  global $koneksi;
+
+  $sql = "DELETE FROM tb_mata_kuliah WHERE id_mata_kuliah = ?";
+  $stmt = $koneksi->prepare($sql);
+  $stmt->execute([$id]);
+
+  if ($stmt->affected_rows) {
+    // $_SESSION['modifikasi'] = ['aksi' => 'hapus', 'keberhasilan' => true];
+  } else {
+    // $_SESSION['modifikasi'] = ['aksi' => 'hapus', 'keberhasilan' => false];
+  }
+
+  header('location: index.php?halaman=matakuliah');
+}
+
 
 
 // function cekKoneksi()

@@ -54,12 +54,12 @@ function jadwalSimpan($data)
   $stmt->execute();
 
   if ($stmt->affected_rows) {
-    $_SESSION['modifikasi'] = ['aksi' => 'simpan', 'keberhasilan' => true];
+    // $_SESSION['modifikasi'] = ['aksi' => 'simpan', 'keberhasilan' => true];
+    header('location: index.php?halaman=jadwal');
   } else {
-    $_SESSION['modifikasi'] = ['aksi' => 'simpan', 'keberhasilan' => false];
+    // $_SESSION['modifikasi'] = ['aksi' => 'simpan', 'keberhasilan' => false];
+    header('location: index.php?halaman=tambah-jadwal');
   }
-
-  header('location: index.php?halaman=jadwal');
 }
 
 // edit data jadwal
@@ -81,12 +81,12 @@ function jadwalEdit($data)
   $stmt->execute();
 
   if ($stmt->affected_rows) {
-    $_SESSION['modifikasi'] = ['aksi' => 'ubah', 'keberhasilan' => true];
+    // $_SESSION['modifikasi'] = ['aksi' => 'ubah', 'keberhasilan' => true];
+    header('location: index.php?halaman=jadwal');
   } else {
-    $_SESSION['modifikasi'] = ['aksi' => 'ubah', 'keberhasilan' => false];
+    // $_SESSION['modifikasi'] = ['aksi' => 'ubah', 'keberhasilan' => false];
+    header('location: index.php?halaman=ubah-jadwal&id=' . $id);
   }
-
-  header('location: index.php?halaman=jadwal');
 }
 
 // hapus data jadwal
@@ -99,9 +99,9 @@ function jadwalHapus($id)
   $stmt->execute([$id]);
 
   if ($stmt->affected_rows) {
-    $_SESSION['modifikasi'] = ['aksi' => 'hapus', 'keberhasilan' => true];
+    // $_SESSION['modifikasi'] = ['aksi' => 'hapus', 'keberhasilan' => true];
   } else {
-    $_SESSION['modifikasi'] = ['aksi' => 'hapus', 'keberhasilan' => false];
+    // $_SESSION['modifikasi'] = ['aksi' => 'hapus', 'keberhasilan' => false];
   }
 
   header('location: index.php?halaman=jadwal');
