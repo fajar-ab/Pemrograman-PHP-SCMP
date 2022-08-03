@@ -1,5 +1,4 @@
 <?php
-
 require_once __DIR__ . '/../../config/koneksi.php';
 
 // dapatkan koneksi database mysql

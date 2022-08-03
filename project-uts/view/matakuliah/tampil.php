@@ -114,4 +114,4 @@ if (isset($_GET['hapus'])) {
 <!-- menu aksi -->
 
 <!-- javascript -->
-<script src="assets\my\js\matakuliah.js"></script>
+<script src="assets\my\js\matakuliah-badge.js"></script>

@@ -38,7 +38,6 @@ if (isset($_POST['edit'])) {
           </div>
           <div class="col-md-6">
             <select class="form-select py-1" name="hari" id="hari" data-hari="<?= $dataJadwal[1] ?>" required>
-              <option value="" disabled>— Pilih Hari</option>
               <option value="senin">senin</option>
               <option value="selasa">selasa</option>
               <option value="rabu">rabu</option>
@@ -59,7 +58,6 @@ if (isset($_POST['edit'])) {
           </div>
           <div class="col-md-6">
             <select class="form-select py-1" name="matakuliah" id="matakuliah" required>
-              <option value="" disabled>— Pilih Matakuliah</option>
 
               <?php foreach ($dataMatakuliah as $matakuliah) : ?>
                 <?php if ($matakuliah[0] == $dataJadwal[2]) : ?>
@@ -101,3 +99,6 @@ if (isset($_POST['edit'])) {
 </div>
 
 <br><br><br><br><br><br>
+
+<!-- javascript -->
+<script src="assets\my\js\jadwal-select.js"></script>

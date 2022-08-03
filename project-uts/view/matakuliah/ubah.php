@@ -95,9 +95,11 @@ if (isset($_POST['ubah'])) {
 
       <button class="btn btn-primary px-3" type="submit" name="ubah">
         <!-- <i class="fa-solid fa-plus me-2"></i> -->
-        uabah
+        ubah
       </button>
       <a href="?halaman=matakuliah" class="btn btn-success px-3 ms-2" type="submit">kembali</a>
     </form>
   </div>
 </div>
+
+<script src="assets\my\js\matakuliah-select.js"></script>

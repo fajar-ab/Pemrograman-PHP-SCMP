@@ -10,10 +10,8 @@ if (isset($_GET['hapus'])) {
   jadwalHapus($_GET['hapus']);
 }
 
-// pesan keberhasilan modifikasi data
-if (isset($_SESSION['modifikasi'])) {
-  tampilPesan($_SESSION['modifikasi']);
-}
+// ! pesan keberhasilan modifikasi data
+
 
 ?>
 
@@ -128,4 +126,4 @@ if (isset($_SESSION['modifikasi'])) {
 <!-- menu aksi -->
 
 <!-- javascript -->
-<script src="assets\my\js\jadwal.js"></script>
+<script src="assets\my\js\jadwal-badge.js"></script>
