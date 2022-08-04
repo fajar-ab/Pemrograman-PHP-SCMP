@@ -16,17 +16,6 @@ function dataMatakuliah(): array
 }
 
 
-function matakuliahCari(string $sql, array $keyword): array
-{
-  global $koneksi;
-  $stmt = $koneksi->prepare($sql);
-  $stmt->execute($keyword);
-  $hasil = $stmt->get_result();
-  $stmt->close();
-
-  return $hasil->fetch_all(MYSQLI_NUM);
-}
-
 function matakuliahSimpan($data)
 {
   global $koneksi;
@@ -51,6 +40,7 @@ function matakuliahSimpan($data)
     header('location: index.php?halaman=tambah-matakuliah');
   }
 }
+
 
 function matakuliahUbah($data)
 {
@@ -85,6 +75,7 @@ function matakuliahUbah($data)
   }
 }
 
+
 function matakuliahHapus($id)
 {
   global $koneksi;
@@ -103,14 +94,27 @@ function matakuliahHapus($id)
 }
 
 
+function matakuliahCari(string $sql, array $keyword): array
+{
+  global $koneksi;
+  $stmt = $koneksi->prepare($sql);
+  $stmt->execute($keyword);
+  $hasil = $stmt->get_result();
+  $stmt->close();
 
-// function cekKoneksi()
-// {
-//   global $koneksi;
+  return $hasil->fetch_all(MYSQLI_NUM);
+}
 
-//   if ($koneksi->connect_error) {
-//     die('error: ' . $koneksi->connect_error);
-//   } else {
-//     echo "berhasil";
-//   }
-// }
+
+function matakuliahCariDenganKerword($keyword)
+{
+  $sql = "SELECT * FROM tb_mata_kuliah WHERE 
+  id_mata_kuliah LIKE ? OR nama LIKE ? OR dosen LIKE ? 
+  OR ruangan LIKE ? OR sks LIKE ? OR semester LIKE ?";
+
+  $keyword = [
+    "%{$keyword}%", "%{$keyword}%", "%{$keyword}%",
+    "%{$keyword}%", "%{$keyword}%", "%{$keyword}%"
+  ];
+  return matakuliahCari($sql, $keyword);
+}

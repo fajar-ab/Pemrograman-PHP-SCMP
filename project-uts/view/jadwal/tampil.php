@@ -10,7 +10,12 @@ if (isset($_GET['hapus'])) {
   jadwalHapus($_GET['hapus']);
 }
 
-// ! pesan keberhasilan modifikasi data
+// cari jadwal
+if (isset($_POST['cari'])) {
+  $dataJadwal = jadwalCariDenganKeyword($_POST['keyword']);
+}
+
+// TODO pesan keberhasilan modifikasi data
 
 
 ?>
@@ -18,9 +23,22 @@ if (isset($_GET['hapus'])) {
 <!-- card table jadwal -->
 <div class="card">
   <div class="card-header">
-    <div class="user-select-none text-muted">
-      <i class="fa-solid fa-table me-2"></i>
-      List Jadwal
+    <div class="row d-flex align-items-center">
+      <div class="col-lg-8 user-select-none text-muted">
+        <i class="fa-solid fa-table me-2"></i>
+        List Jadwal
+      </div>
+      <div class="col-lg-4 mt-lg-0 mt-2">
+        <!-- form cari -->
+        <form action="" method="post" autocomplete="off">
+          <div class="input-group rounded">
+            <input type="search" class="form-control form-control-sm rounded" placeholder="Cari" aria-label="Search" aria-describedby="search-addon" name="keyword" />
+            <button class="input-group-text border-0" id="search-addon" type="submit" name="cari">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
   <div class="card-body">

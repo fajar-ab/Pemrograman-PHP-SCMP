@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../config/koneksi.php';
 // dapatkan koneksi database mysql
 $koneksi = Database::getConnection();
 
-// ambil data jadwal dari database
+//  ambil data jadwal dari database
 function dataJadwal(): array
 {
   global $koneksi;
@@ -23,18 +23,6 @@ function dataJadwal(): array
   $stmt = $koneksi->query($sql);
 
   return $stmt->fetch_all(MYSQLI_NUM);
-}
-
-// cari data jadwal
-function jadwalCari(string $sql, array $keyword): array
-{
-  global $koneksi;
-  $stmt = $koneksi->prepare($sql);
-  $stmt->execute($keyword);
-  $hasil = $stmt->get_result();
-  $stmt->close();
-
-  return $hasil->fetch_all(MYSQLI_NUM);
 }
 
 // simpan data jadwal
@@ -103,6 +91,44 @@ function jadwalHapus($id)
   }
 
   header('location: index.php?halaman=jadwal');
+}
+
+// cari data jadwal
+function jadwalCari(string $sql, array $keyword): array
+{
+  global $koneksi;
+  $stmt = $koneksi->prepare($sql);
+  $stmt->execute($keyword);
+  $hasil = $stmt->get_result();
+  $stmt->close();
+
+  return $hasil->fetch_all(MYSQLI_NUM);
+}
+
+// cari data jadwal berdasarkan keyword
+function jadwalCariDenganKeyword($keyword)
+{
+  $sql = "SELECT tb_jadwal.hari,
+        tb_mata_kuliah.nama,
+        tb_jadwal.pukul,
+        tb_mata_kuliah.ruangan,
+        tb_mata_kuliah.dosen
+    FROM tb_jadwal
+        INNER JOIN tb_mata_kuliah ON tb_jadwal.id_mata_kuliah = tb_mata_kuliah.id_mata_kuliah
+    WHERE tb_jadwal.hari LIKE ?
+        OR tb_mata_kuliah.nama LIKE ?
+        OR tb_jadwal.pukul LIKE ?
+        OR tb_mata_kuliah.ruangan LIKE ?
+        OR tb_mata_kuliah.dosen LIKE ?
+    ORDER BY tb_jadwal.hari,
+        tb_jadwal.pukul";
+
+  $keyword = [
+    "%{$keyword}%", "%{$keyword}%", "%{$keyword}%",
+    "%{$keyword}%", "%{$keyword}%"
+  ];
+
+  return jadwalCari($sql, $keyword);
 }
 
 

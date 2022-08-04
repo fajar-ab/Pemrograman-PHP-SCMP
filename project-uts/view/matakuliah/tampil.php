@@ -9,15 +9,36 @@ $dataMatakuliah = dataMatakuliah();
 if (isset($_GET['hapus'])) {
   matakuliahHapus($_GET['hapus']);
 }
+
+// cari data matakuliah
+if (isset($_POST['cari'])) {
+  $dataMatakuliah = matakuliahCariDenganKerword($_POST['keyword']);
+}
+
+// TODO pesan keberhasilan modifikasi data
+
 ?>
 
 
 <!-- card table -->
 <div class="card">
   <div class="card-header">
-    <div class="user-select-none text-muted">
-      <i class="fa-solid fa-table me-2"></i>
-      List Matakuliah
+    <div class="row d-flex align-items-center">
+      <div class="col-lg-8 user-select-none text-muted">
+        <i class="fa-solid fa-table me-2"></i>
+        List Matakuliah
+      </div>
+      <div class="col-lg-4 mt-lg-0 mt-2">
+        <!-- form cari -->
+        <form action="" method="post" autocomplete="off">
+          <div class="input-group rounded">
+            <input type="search" class="form-control form-control-sm rounded" placeholder="Cari" aria-label="Search" aria-describedby="search-addon" name="keyword" />
+            <button class="input-group-text border-0" id="search-addon" type="submit" name="cari">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
   <div class="card-body">
@@ -95,7 +116,13 @@ if (isset($_GET['hapus'])) {
           <!-- table body -->
         <?php else : ?>
           <tfoot>
-            <th colspan="6"></th>
+            <th colspan="7" class="text-muted text-center">
+              <div class="h4">
+                <i class="fa-solid fa-face-frown mb-2"></i>
+                <br>
+                Data Tidak Ditemukan!
+              </div>
+            </th>
           </tfoot>
         <?php endif ?>
       </table>
@@ -106,7 +133,7 @@ if (isset($_GET['hapus'])) {
 
 <!-- menu aksi tambah matakuliah-->
 <div class="fixed-action-btn" style="right: 1rem">
-  <a href="?halaman=tambah-matakuliah" class="btn btn-floating btn-primary btn-lg" data-mdb-toggle="tooltip" data-mdb-placement="left" title="Tambah Jadawal" style="background-color: #f44336">
+  <a href="?halaman=tambah-matakuliah" class="btn btn-floating btn-primary btn-lg" data-mdb-toggle="tooltip" data-mdb-placement="left" title="Tambah Matakuliah" style="background-color: #f44336">
     <i class="fas fa-plus"></i>
   </a>
   <ul class="list-unstyled"></ul>
