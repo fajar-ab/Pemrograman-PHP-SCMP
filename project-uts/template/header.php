@@ -21,7 +21,7 @@
       <i class="fa-solid fa-list-check text-white"></i>
     </span>
     <h5 class="text-white h4">UTS Project</h5>
-    <span class="text-muted">Aplikasi loster matakuliah</span>
+    <span class="text-muted">Aplikasi roster matakuliah</span>
   </div>
   <!-- judul -->
 

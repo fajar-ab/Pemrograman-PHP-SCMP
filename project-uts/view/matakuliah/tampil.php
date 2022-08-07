@@ -1,12 +1,13 @@
 <?php
 require_once __DIR__ . '/../../src/matakuliah/function.php';
-require_once __DIR__ . '/../../src/helper/pesan.php';
 
 // ambil data matakuiah
 $dataMatakuliah = dataMatakuliah();
 
 // hapus
 if (isset($_GET['hapus'])) {
+  var_dump($_GET);
+  die;
   matakuliahHapus($_GET['hapus']);
 }
 
@@ -92,25 +93,25 @@ if (isset($_POST['cari'])) {
                 </td>
                 <td class="text-center"><?= $matakuliah[4] ?></td>
                 <td class="text-center"><?= $matakuliah[5] ?></td>
-              </tr>
 
-              <!-- modals -->
-              <div class="modal fade" id="hapus" tabindex="-1" aria-labelledby="modalHapus" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-sm">
-                  <div class="modal-content">
-                    <div class="modal-body text-center pt-4">
-                      <p class="m-0">Anda yakin ingin menghapus data</p>
-                    </div>
-                    <div class="modal-footer p-1 mx-auto border-0">
-                      <button type="button" class="btn btn-sm btn-secondary d-block" data-mdb-dismiss="modal">
-                        Batal
-                      </button>
-                      <a href="?halaman=matakuliah&hapus=<?= $matakuliah[0] ?>" class="btn btn-sm btn-primary">Hapus</a>
+                <!-- modals -->
+                <div class="modal fade" id="hapus" tabindex="-1" aria-labelledby="modalHapus" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-sm">
+                    <div class="modal-content">
+                      <div class="modal-body text-center pt-4">
+                        <p class="m-0">Anda yakin ingin menghapus data</p>
+                      </div>
+                      <div class="modal-footer p-1 mx-auto border-0">
+                        <button type="button" class="btn btn-sm btn-secondary d-block" data-mdb-dismiss="modal">
+                          Batal
+                        </button>
+                        <a href="?halaman=matakuliah&hapus=<?= $matakuliah[0] ?>" class="btn btn-sm btn-primary">Hapus</a>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- modals -->
+                <!-- modals -->
+              </tr>
             <?php endforeach ?>
           </tbody>
           <!-- table body -->
