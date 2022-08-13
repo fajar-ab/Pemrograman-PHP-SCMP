@@ -2,31 +2,20 @@
 
 @$halaman = $_GET['halaman'];
 
-switch ($halaman) {
+$url = match ($halaman) {
 
-    // jadwal
-  case 'jadwal':
-    require_once __DIR__ . "/view/jadwal/tampil.php";
-    break;
-  case 'tambah-jadwal':
-    require_once __DIR__ . "/view/jadwal/tambah.php";
-    break;
-  case 'ubah-jadwal':
-    require_once __DIR__ . "/view/jadwal/ubah.php";
-    break;
+  // jadwal
+  'jadwal'        => __DIR__ . "/view/jadwal/tampil.php",
+  'tambah-jadwal' => __DIR__ . "/view/jadwal/tambah.php",
+  'ubah-jadwal'   => __DIR__ . "/view/jadwal/ubah.php",
 
-    // mata kuliah
-  case 'matakuliah':
-    require_once __DIR__ . "/view/matakuliah/tampil.php";
-    break;
-  case 'tambah-matakuliah':
-    require_once __DIR__ . "/view/matakuliah/tambah.php";
-    break;
-  case 'ubah-matakuliah':
-    require_once __DIR__ . "/view/matakuliah/ubah.php";
-    break;
+  // mata kuliah
+  'matakuliah'        => __DIR__ . "/view/matakuliah/tampil.php",
+  'tambah-matakuliah' => __DIR__ . "/view/matakuliah/tambah.php",
+  'ubah-matakuliah'   => __DIR__ . "/view/matakuliah/ubah.php",
 
     // default
-  default:
-    require_once __DIR__ . "/view/jadwal/tampil.php";
-}
+  default => __DIR__ . "/view/jadwal/tampil.php"
+};
+
+require_once $url;

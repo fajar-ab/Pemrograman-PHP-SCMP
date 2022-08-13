@@ -1,16 +1,15 @@
-const ruangan = document.querySelectorAll('span#ruangan-badge');
+const ruangan = document.querySelectorAll("span#ruangan-badge");
 
-for (let i = 0; i < ruangan.length; i++) {
-  let content = ruangan[i].textContent;
-  switch (content.trim()) {
-    case 'RUANG01':
-      ruangan[i].classList.add('badge-secondary')
+for (const badge of ruangan) {
+  switch (badge.textContent.trim()) {
+    case "RUANG01":
+      badge.classList.add("badge-secondary");
       break;
-      case 'RUANG02':
-      ruangan[i].classList.add('badge-success')
+    case "RUANG02":
+      badge.classList.add("badge-success");
       break;
-      case 'LABOR01':
-      ruangan[i].classList.add('badge-info')
+    case "LABOR01":
+      badge.classList.add("badge-info");
       break;
-  } 
+  }
 }
