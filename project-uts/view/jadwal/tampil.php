@@ -72,7 +72,7 @@ if (isset($_POST['cari'])) {
                         </a>
                       </li>
                       <li>
-                        <a href="#" class="dropdown-item" data-mdb-toggle="modal" data-mdb-target="#hapus">
+                        <a href="#" class="dropdown-item" data-mdb-toggle="modal" data-mdb-target="#hapus-<?= $jadwal[5] ?>">
                           <i class="fa-solid fa-trash me-1"></i>Hapus
                         </a>
                       </li>
@@ -96,7 +96,7 @@ if (isset($_POST['cari'])) {
               </tr>
 
               <!-- modals -->
-              <div class="modal fade" id="hapus" tabindex="-1" aria-labelledby="modalHapus" aria-hidden="true">
+              <div class="modal fade" id="hapus-<?= $jadwal[5] ?>" tabindex="-1" aria-labelledby="modalHapus" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-sm">
                   <div class="modal-content">
                     <div class="modal-body text-center pt-4">
