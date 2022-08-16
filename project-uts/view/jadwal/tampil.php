@@ -15,8 +15,10 @@ if (isset($_POST['cari'])) {
   $dataJadwal = jadwalCariDenganKeyword($_POST['keyword']);
 }
 
-// TODO pesan keberhasilan modifikasi data
-
+// pesan keberhasilan modifikasi data
+if (isset($_SESSION['modifikasi'])) {
+  tampilPesan($_SESSION['modifikasi']);
+}
 
 ?>
 
@@ -68,7 +70,7 @@ if (isset($_POST['cari'])) {
                     <ul class="dropdown-menu">
                       <li>
                         <a href="?halaman=ubah-jadwal&id=<?= $jadwal[5] ?>" class="dropdown-item" href="#">
-                          <i class="fa-solid fa-pen-to-square me-1"></i>Edit
+                          <i class="fa-solid fa-pen-to-square me-1"></i>Ubah
                         </a>
                       </li>
                       <li>

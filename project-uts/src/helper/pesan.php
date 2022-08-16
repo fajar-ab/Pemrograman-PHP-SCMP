@@ -1,32 +1,44 @@
 <?php
+include_once __DIR__ . '/alert.php';
+session_start();
 
-function tampilPesan($data)
+function buatPesan(string $title, bool $keberhasilan): void
 {
-  require_once __DIR__ . '/alert.php';
+  $_SESSION["modifikasi"] = [
+    "title" => $title,
+    "keberhasilan" => $keberhasilan
+  ];
+}
 
-  switch ($data['aksi']) {
+function tampilPesan(array $value): void
+{
+  $title = $value['title'];
+  $keberhasilan = $value['keberhasilan'];
+
+  switch ($title) {
     case 'simpan':
-      if ($data['keberhasilan']) {
-        alert('data berhasil disimpan!', ALERT_SUCCESS);
+      if ($keberhasilan) {
+        alert('Data berhasil disimpan', ALERT_SUCCESS);
       } else {
-        alert('data gagal disimpan!', ALERT_DANGER);
-      }
-      break;
-    case 'hapus':
-      if ($data['keberhasilan']) {
-        alert('data berhasil dihapus!', ALERT_SUCCESS);
-      } else {
-        alert('data gagal disimpan!', ALERT_DANGER);
+        alert('Data gagal disimpan', ALERT_DANGER);
       }
       break;
     case 'ubah':
-      if ($data['keberhasilan']) {
-        alert('data berhasil diubah!', ALERT_SUCCESS);
+      if ($keberhasilan) {
+        alert('Data berhasil diubah', ALERT_SUCCESS);
       } else {
-        alert('data gagal diubah!', ALERT_DANGER);
+        alert('Data gagal diubah', ALERT_DANGER);
+      }
+      break;
+    case 'hapus':
+      if ($keberhasilan) {
+        alert('Data berhasil dihapus', ALERT_SUCCESS);
+      } else {
+        alert('Data gagal dihapus', ALERT_DANGER);
       }
       break;
   }
 
-  session_destroy();
+  // session_destroy();
+  unset($_SESSION["modifikasi"]);
 }

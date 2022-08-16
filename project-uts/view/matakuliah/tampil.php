@@ -6,8 +6,6 @@ $dataMatakuliah = dataMatakuliah();
 
 // hapus
 if (isset($_GET['hapus'])) {
-  var_dump($_GET);
-  die;
   matakuliahHapus($_GET['hapus']);
 }
 
@@ -16,7 +14,10 @@ if (isset($_POST['cari'])) {
   $dataMatakuliah = matakuliahCariDenganKerword($_POST['keyword']);
 }
 
-// TODO pesan keberhasilan modifikasi data
+// pesan keberhasilan modifikasi data
+if (isset($_SESSION['modifikasi'])) {
+  tampilPesan($_SESSION['modifikasi']);
+}
 
 ?>
 

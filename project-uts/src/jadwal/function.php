@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . '/../../config/koneksi.php';
+require_once __DIR__ . "/../../config/koneksi.php";
+require_once __DIR__ . "/../helper/pesan.php";
 
 // dapatkan koneksi database mysql
 $koneksi = Database::getConnection();
@@ -39,17 +40,19 @@ function jadwalSimpan($data)
   $pukul        = "{$data['pukul_sebelum']} - {$data['pukul_sesudah']}";
   $stmt->execute();
 
-  if ($stmt->affected_rows) {
-    // $_SESSION['modifikasi'] = ['aksi' => 'simpan', 'keberhasilan' => true];
+  if ($stmt->affected_rows > 0) {
+    buatPesan("simpan", true);
     header('location: index.php?halaman=jadwal');
+    exit;
   } else {
-    // $_SESSION['modifikasi'] = ['aksi' => 'simpan', 'keberhasilan' => false];
+    buatPesan("simpan", false);
     header('location: index.php?halaman=tambah-jadwal');
+    exit;
   }
 }
 
-// edit data jadwal
-function jadwalEdit($data)
+// ubah data jadwal
+function jadwalUbah($data)
 {
   global $koneksi;
 
@@ -66,12 +69,14 @@ function jadwalEdit($data)
   $pukul        = "{$data['pukul_sebelum']} - {$data['pukul_sesudah']}";
   $stmt->execute();
 
-  if ($stmt->affected_rows) {
-    // $_SESSION['modifikasi'] = ['aksi' => 'ubah', 'keberhasilan' => true];
+  if ($stmt->affected_rows > 0) {
+    buatPesan("ubah", true);
     header('location: index.php?halaman=jadwal');
+    exit;
   } else {
-    // $_SESSION['modifikasi'] = ['aksi' => 'ubah', 'keberhasilan' => false];
+    buatPesan("ubah", false);
     header('location: index.php?halaman=ubah-jadwal&id=' . $id);
+    exit;
   }
 }
 
@@ -84,13 +89,14 @@ function jadwalHapus($id)
   $stmt = $koneksi->prepare($sql);
   $stmt->execute([$id]);
 
-  if ($stmt->affected_rows) {
-    // $_SESSION['modifikasi'] = ['aksi' => 'hapus', 'keberhasilan' => true];
+  if ($stmt->affected_rows > 0) {
+    buatPesan("hapus", true);
   } else {
-    // $_SESSION['modifikasi'] = ['aksi' => 'hapus', 'keberhasilan' => false];
+    buatPesan("hapus", false);
   }
 
   header('location: index.php?halaman=jadwal');
+  exit;
 }
 
 // cari data jadwal

@@ -11,6 +11,11 @@ if (isset($_POST['ubah'])) {
   matakuliahUbah($_POST);
 }
 
+// pesan keberhasilan modifikasi data
+if (isset($_SESSION['modifikasi'])) {
+  tampilPesan($_SESSION['modifikasi']);
+}
+
 ?>
 
 <div class="card">

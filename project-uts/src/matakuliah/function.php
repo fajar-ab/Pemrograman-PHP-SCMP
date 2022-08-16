@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../config/koneksi.php';
+require_once __DIR__ . "/../helper/pesan.php";
 
 // dapatkan koneksi database mysql
 $koneksi = Database::getConnection();
@@ -33,11 +34,13 @@ function matakuliahSimpan($data)
   $stmt->execute();
 
   if ($stmt->affected_rows > 0) {
-
+    buatPesan("simpan", true);
     header('location: index.php?halaman=matakuliah');
+    exit;
   } else {
-
+    buatPesan("simpan", false);
     header('location: index.php?halaman=tambah-matakuliah');
+    exit;
   }
 }
 
@@ -67,11 +70,13 @@ function matakuliahUbah($data)
   $stmt->execute();
 
   if ($stmt->affected_rows > 0) {
-
+    buatPesan("ubah", true);
     header('location: index.php?halaman=matakuliah');
+    exit;
   } else {
-
+    buatPesan("ubah", false);
     header('location: index.php?halaman=ubah-matakuliah&id=' . $idMatakuliah);
+    exit;
   }
 }
 
@@ -84,13 +89,14 @@ function matakuliahHapus($id)
   $stmt = $koneksi->prepare($sql);
   $stmt->execute([$id]);
 
-  if ($stmt->affected_rows) {
-    // $_SESSION['modifikasi'] = ['aksi' => 'hapus', 'keberhasilan' => true];
+  if ($stmt->affected_rows > 0) {
+    buatPesan("hapus", true);
   } else {
-    // $_SESSION['modifikasi'] = ['aksi' => 'hapus', 'keberhasilan' => false];
+    buatPesan("hapus", false);
   }
 
   header('location: index.php?halaman=matakuliah');
+  exit;
 }
 
 

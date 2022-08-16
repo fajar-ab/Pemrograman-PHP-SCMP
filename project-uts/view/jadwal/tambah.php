@@ -1,12 +1,18 @@
 <?php
 require_once __DIR__ . '/../../src/matakuliah/function.php';
 require_once __DIR__ . '/../../src/jadwal/function.php';
+require_once __DIR__ . '/../../src/helper/pesan.php';
 
 $sql = "SELECT id_mata_kuliah, nama FROM `tb_mata_kuliah` WHERE ?";
 $dataMatakuliah = matakuliahCari($sql, [1]);
 
 if (isset($_POST['simpan'])) {
-  $hasil = jadwalSimpan($_POST);
+  jadwalSimpan($_POST);
+}
+
+// pesan keberhasilan modifikasi data
+if (isset($_SESSION["modifikasi"])) {
+  tampilPesan($_SESSION["modifikasi"]);
 }
 
 ?>

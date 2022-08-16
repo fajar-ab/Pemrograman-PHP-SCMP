@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../../src/matakuliah/function.php';
 require_once __DIR__ . '/../../src/jadwal/function.php';
+require_once __DIR__ . '/../../src/helper/pesan.php';
 
 // ambil data nama matakuliah
 $sql = "SELECT id_mata_kuliah, nama FROM `tb_mata_kuliah` WHERE ?";
@@ -13,8 +14,13 @@ $dataJadwal = jadwalCari($sql, [$id])[0];
 $pukul = explode(" - ", $dataJadwal[3]);
 
 // edit
-if (isset($_POST['edit'])) {
-  $hasil = jadwalEdit($_POST);
+if (isset($_POST['ubah'])) {
+  $hasil = jadwalUbah($_POST);
+}
+
+// pesan keberhasilan modifikasi data
+if (isset($_SESSION["modifikasi"])) {
+  tampilPesan($_SESSION["modifikasi"]);
 }
 
 ?>
@@ -89,9 +95,9 @@ if (isset($_POST['edit'])) {
         </div>
       </div>
 
-      <button class="btn btn-primary px-3" type="submit" name="edit">
+      <button class="btn btn-primary px-3" type="submit" name="ubah">
         <!-- <i class="fa-solid fa-plus me-2"></i> -->
-        edit
+        ubah
       </button>
       <a href="?halaman=jadwal" class="btn btn-success px-3 ms-2" type="submit">kembali</a>
     </form>

@@ -1,9 +1,7 @@
-
-
-const pesan = document.querySelector('body > div.container.my-4 > div.position-absolute.top-50.start-50.translate-middle');
+const pesan = document.querySelector("#pesan");
 
 setTimeout(() => {
-  pesan.classList.add('sembunyikan')
+  pesan.classList.add("sembunyikan");
 }, 2000);
 
 if (window.history.replaceState) {

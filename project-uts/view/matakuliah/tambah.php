@@ -4,6 +4,12 @@ require_once __DIR__ . '/../../src/matakuliah/function.php';
 if (isset($_POST['tambah'])) {
   matakuliahSimpan($_POST);
 }
+
+// pesan keberhasilan modifikasi data
+if (isset($_SESSION["modifikasi"])) {
+  tampilPesan($_SESSION["modifikasi"]);
+}
+
 ?>
 
 <div class="card">
