@@ -11,7 +11,7 @@ function alert(string $pesan, int $icon)
     case 1:
       echo <<<ALT
       <div class="position-absolute top-50 start-50 translate-middle mt-5" id="pesan" style="z-index: 1040">
-        <div class="alert alert-primary d-flex align-items-center shadow p-3" role="alert">
+        <div class="alert alert-primary d-flex align-items-center shadow " role="alert">
           <i class="fa-solid fa-circle-info me-2"></i>
           <div>
             $pesan
@@ -23,7 +23,7 @@ function alert(string $pesan, int $icon)
     case 2:
       echo <<<ALT
       <div class="position-absolute top-50 start-50 translate-middle mt-5" id="pesan" style="z-index: 1040">
-        <div class="alert alert-success d-flex align-items-center shadow p-3" role="alert">
+        <div class="alert alert-success d-flex align-items-center shadow " role="alert">
           <i class="fa-solid fa-circle-check me-2"></i>
           <div>
             $pesan
@@ -35,7 +35,7 @@ function alert(string $pesan, int $icon)
     case 3:
       echo <<<ALT
       <div class="position-absolute top-50 start-50 translate-middle mt-5" id="pesan" style="z-index: 1040">
-        <div class="alert alert-warning d-flex align-items-center shadow p-3" role="alert">
+        <div class="alert alert-warning d-flex align-items-center shadow " role="alert">
           <i class="fa-solid fa-triangle-exclamation me-2"></i>
           <div>
             $pesan
@@ -47,7 +47,7 @@ function alert(string $pesan, int $icon)
     case 4:
       echo <<<ALT
       <div class="position-absolute top-50 start-50 translate-middle mt-5" id="pesan" style="z-index: 1040">
-        <div class="alert alert-danger d-flex align-items-center shadow p-3" role="alert">
+        <div class="alert alert-danger d-flex align-items-center shadow " role="alert">
           <i class="fa-solid fa-circle-xmark me-2"></i>
           <div>
             $pesan
