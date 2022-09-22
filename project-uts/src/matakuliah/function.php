@@ -100,7 +100,7 @@ function matakuliahHapus($id)
 }
 
 
-function matakuliahCari(string $sql, array $keyword): array
+function matakuliahCari(string $sql, $keyword): array
 {
   global $koneksi;
   $stmt = $koneksi->prepare($sql);

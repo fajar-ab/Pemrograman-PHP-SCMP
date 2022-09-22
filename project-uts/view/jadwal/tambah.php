@@ -3,8 +3,10 @@ require_once __DIR__ . '/../../src/matakuliah/function.php';
 require_once __DIR__ . '/../../src/jadwal/function.php';
 require_once __DIR__ . '/../../src/helper/pesan.php';
 
-$sql = "SELECT id_mata_kuliah, nama FROM `tb_mata_kuliah` WHERE ?";
-$dataMatakuliah = matakuliahCari($sql, [1]);
+$sql = "SELECT id_mata_kuliah, nama
+FROM tb_mata_kuliah
+WHERE id_mata_kuliah NOT IN (( SELECT id_mata_kuliah FROM tb_jadwal))";
+$dataMatakuliah = matakuliahCari($sql, null);
 
 if (isset($_POST['simpan'])) {
   jadwalSimpan($_POST);
